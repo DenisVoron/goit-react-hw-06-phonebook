@@ -22,6 +22,10 @@ export function ContactsForm(props) {
             contact.elements.name.value,
             contact.elements.number.value,
         ));
+
+
+        //contact.reset()
+
         //dispatch(addContacts(contact.elements.number.value));
         //console.log(contact.elements.name.value);
         //addContacts

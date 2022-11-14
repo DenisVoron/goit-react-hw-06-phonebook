@@ -1,6 +1,6 @@
-import { useState, useEffect} from 'react';
+//import { useState, useEffect} from 'react';
 
-import { nanoid } from 'nanoid';
+//import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,7 +13,7 @@ import { ContactList } from './ContactList/ContactList';
 
 
 export function App() {
-  const [contacts, setContacts] = useState(() => {
+  /*const [contacts, setContacts] = useState(() => {
     return JSON.parse(window.localStorage.getItem('contactHook')) ?? [];
   });
   const [filter, setFilter] = useState('');
@@ -29,9 +29,9 @@ export function App() {
     contacts.some(currentName => currentName.name === name)
       ? toast.warn(`${name} is already in contact`)
       : setContacts([contactObj, ...contacts]);
-  };
+  };*/
 
-  const deleteContact = contactId => {
+  /*const deleteContact = contactId => {
     setContacts(prevState => prevState.filter(contact => contact.id !== contactId));
   };
 
@@ -47,17 +47,17 @@ export function App() {
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
   };
 
-  const contactList = getVisiblContact();
+  const contactList = getVisiblContact();*/
 
   return (
     <Container>
       <Section title='Phonebook'>
-        <ContactsForm onDataSubmit={addContacts} />
+        <ContactsForm />
       </Section>
       <Section title='Contacts'>
         <Wrapper>
-          <Filter value={filter} onFilterChange={changeFilter} />
-          <ContactList contacts={contactList} onDeleteContact={deleteContact} />
+          <Filter />
+          <ContactList />
         </Wrapper>
         <ToastContainer
           position="top-center"

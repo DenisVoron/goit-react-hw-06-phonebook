@@ -2,9 +2,10 @@
 //import { rootReducer } from "./reducer";
 import { createStore } from "redux";
 import { devToolsEnhancer } from "@redux-devtools/extension";
-import { nanoid } from 'nanoid';
+import { rootReducer } from "./reducer";
+//import { nanoid } from 'nanoid';
 
-const initialState = {
+/*const initialState = {
     contacts: [
         {
             id: nanoid(),
@@ -17,7 +18,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     return state;
-};
+};*/
 
 const enhancer = devToolsEnhancer();
 
