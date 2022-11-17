@@ -1,7 +1,7 @@
 //import { useState, useEffect} from 'react';
 
 //import { nanoid } from 'nanoid';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Container } from './Container/Container'

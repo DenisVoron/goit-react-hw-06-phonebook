@@ -1,57 +1,47 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react'
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { nanoid } from 'nanoid';
+import { toast } from 'react-toastify';
 
-import { addContacts } from "../../redux/actions";
-import PropTypes from 'prop-types';
+import { getContacts } from "../../redux/selectors";
+import { addContacts} from "../../redux/contactsSlice";
 
 import css from './ContactsForm.module.css';
 
-export function ContactsForm(props) {
+export function ContactsForm() {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
-    //const data = {name, number}
+    const contacts = useSelector(getContacts);
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
         event.preventDefault();
 
-        const contact = event.target;
+        const addContact = {
+            id: nanoid(),
+            name,
+            number,
+        };
 
-        dispatch(addContacts(
-            contact.elements.name.value,
-            contact.elements.number.value,
-        ));
-
-
-        //contact.reset()
-
-        //dispatch(addContacts(contact.elements.number.value));
-        //console.log(contact.elements.name.value);
-        //addContacts
-        //props.onDataSubmit(data);
-
-    };
-
-
-
-    /*const handleSubmit = event => {
-        event.preventDefault();
-
-        props.onDataSubmit(data);
+        contacts.some(currentName => currentName.name.toLowerCase() === name.toLowerCase())
+      ? toast.warn(`${name} is already in contact`)
+      : dispatch(addContacts(addContact));
 
         reset();
-    };*/
+    };
 
-    /*function reset() {
+    const reset = () => {
         setName('');
         setNumber('');
-    }*/
+    };
+    
 
     const handleNameChange = event => {
         const {name, value} = event.currentTarget;
 
-        //console.log(name);
         switch (name) {
             case 'name':
                 setName(value);

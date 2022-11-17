@@ -1,33 +1,42 @@
-//файл объявления функций - редюсеров для обновления состояния
-
 //=============== Reducer Slice ========================
 //этот файл больше не нужен для слайса
+//import { addContacts, deleteContacts } from "./actions";
 
-const initialState = {
-    contacts: [
-        {
-            id: '01',
-            name: 'wqewwqewqe',
-            number: '213213213123',
-        },
-        {
-            id: '02',
-            name: 'ghgjgjghjgj',
-            number: '2132768687678',
-        },
-        {
-            id: '03',
-            name: 'bnmnbmbnmmn',
-            number: '687868678768',
-        }
-    ],
-    filter: "",
+
+
+
+/*export const contactsReducer = (state = contactsInitialState, action) => {
+    switch (action.type) {
+        case addContacts.type:
+            return [...state, action.payload];
+        case deleteContacts.type:
+            return state.filter(contact => contact.id !== action.payload);
+
+        default:
+            return state;
+    }
+};*/
+
+/*const filterInitialState = {
+    filter: [],
+}
+
+export const filterReducer = (state = filterInitialState, action) => {
+    switch (action.type) {
+        case "filters/setStatusFilter":
+            return {
+                ...state,
+                status: action.payload,
+            };
+        default:
+            return state;
+    }
 };
 
-export const rootReducer = (state = initialState, action) => {
 
+/*export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "contacts/addContacts": {
+        case "contacts/addContacts":
             return {
                 ...state,
                 contacts: [
@@ -36,16 +45,13 @@ export const rootReducer = (state = initialState, action) => {
                 ],
             };
 
-        }
         case "contacts/deleteСontacts":
             return {
                 ...state,
-                contacts: state.contacts.filter(contact => contact.id !== action.payload),
+                contacts: state.contacts.filter(item => item.id !== action.payload),
             };
         default:
-            // Каждый редюсер получает все экшены отправленные в стор.
-            // Если редюсер не должен обрабатывать какой-то тип экшена,
-            // необходимо вернуть существующее состояние без изменений.
             return state;
-    }
-};
+    };
+};*/
+
