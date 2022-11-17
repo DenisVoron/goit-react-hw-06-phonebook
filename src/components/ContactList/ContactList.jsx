@@ -11,7 +11,7 @@ import css from './ContactList.module.css';
 export const ContactList = () => {
 
     const contacts = useSelector(getContacts);
-    console.log(contacts);
+    //console.log(contacts);
 
     //const contact = contacts.map((contact) => contact.id);
     //console.log(contacts.map((contact) => contact.id));
@@ -20,13 +20,13 @@ export const ContactList = () => {
 
     return (
         <ul>
-        {contacts.map((contact) => (
-            <li key={contact.id} className={css['list-item']}>
-                <Contact contact={contact} />
-            </li>
-        ))}
-    </ul>
-    )
+            {contacts.map((contact) => (
+                <li key={contact.id} className={css['list-item']}>
+                    <Contact contact={contact} />
+                </li>
+            ))}
+        </ul>
+    );
 };
 
 ContactList.propTypes = {
