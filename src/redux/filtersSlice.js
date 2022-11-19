@@ -1,21 +1,17 @@
-/*import { createSlice } from "@reduxjs/toolkit";
-import { statusFilters } from "./constants";*/
+import { createSlice } from "@reduxjs/toolkit";
 
-
-/*const filtersInitialState = {
-    status: statusFilters.all,
-};
+//const filterInitialState = filter: ''
 
 const filtersSlice = createSlice({
-    name: "filters",
-    initialState: filtersInitialState,
+    name: "filter",
+    initialState: '',
     reducers: {
-        setStatusFilter(state, action) {
-            state.status = action.payload;
+        setFilter(state, action) {
+            return (state = action.payload);
         },
     },
 });
 
-// Экспортируем генераторы экшенов и редюсер
-export const { setStatusFilter } = filtersSlice.actions;
-export const filtersReducer = filtersSlice.reducer;*/
+
+export const { setFilter } = filtersSlice.actions;
+export const filterReducer = filtersSlice.reducer;

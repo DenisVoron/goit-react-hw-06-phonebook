@@ -2,19 +2,18 @@ import PropTypes from 'prop-types';
 import { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { addContacts, getContacts } from "../../redux/contactsSlice";
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
-
-import { getContacts } from "../../redux/selectors";
-import { addContacts} from "../../redux/contactsSlice";
-
 import css from './ContactsForm.module.css';
+
 
 export function ContactsForm() {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
-    const contacts = useSelector(getContacts);
+    const {contact}= useSelector(getContacts);
+    console.log(contact);
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
@@ -26,7 +25,7 @@ export function ContactsForm() {
             number,
         };
 
-        contacts.some(currentName => currentName.name.toLowerCase() === name.toLowerCase())
+        contact.some(currentName => currentName.name.toLowerCase() === name.toLowerCase())
       ? toast.warn(`${name} is already in contact`)
       : dispatch(addContacts(addContact));
 

@@ -2,25 +2,31 @@ import PropTypes from 'prop-types'
 
 import { useSelector } from "react-redux";
 
-import { getContacts } from "../../redux/selectors";
+import { getContacts, getFilter } from "../../redux/contactsSlice";
 import { Contact } from '../Contact/Contact';
-
 
 import css from './ContactList.module.css';
 
 export const ContactList = () => {
-
-    const contacts = useSelector(getContacts);
-    //console.log(contacts);
-
-    //const contact = contacts.map((contact) => contact.id);
-    //console.log(contacts.map((contact) => contact.id));
-    //console.log(contact);
     
+    const {contact} = useSelector(getContacts);
+    console.log(contact);
+    const {filter} = useSelector(getContacts);
+    console.log(filter);
+
+    const contactsFilter = () => {
+        const filterNormalize = filter//.toLowerCase();
+
+        return contact.filter(contact =>
+            contact.name.toLowerCase().includes(filterNormalize)
+        );
+    };
+    
+    const filteredContacts = contactsFilter();
 
     return (
         <ul>
-            {contacts.map((contact) => (
+            {filteredContacts.map((contact) => (
                 <li key={contact.id} className={css['list-item']}>
                     <Contact contact={contact} />
                 </li>
