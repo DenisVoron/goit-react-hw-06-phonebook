@@ -24,3 +24,7 @@
 .input {
     margin-bottom: 20px;
 }
+
+.formBtn {
+    cursor: pointer;
+}

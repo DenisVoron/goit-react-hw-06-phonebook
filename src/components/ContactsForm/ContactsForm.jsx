@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { addContacts, getContacts } from "../../redux/contactsSlice";
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
+
 import css from './ContactsForm.module.css';
 
 
@@ -12,8 +12,7 @@ export function ContactsForm() {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
-    const {contact}= useSelector(getContacts);
-    console.log(contact);
+    const contact= useSelector(getContacts);
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
@@ -82,13 +81,11 @@ export function ContactsForm() {
                         onChange={handleNameChange}
                     />
                 </label>
-                <button type='submit'>Add contact</button>
+                <button type='submit' className={css.formBtn}>
+                    Add Contact
+                </button>
             </form>
         </div>
     );
 
-}
-
-ContactsForm.propTypes = {
-    props: PropTypes.func,
 }

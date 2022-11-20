@@ -1,16 +1,12 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { getFilter, changeFilter } from "../../redux/contactsSlice";
-//import { changeFilter } from "../../redux/contactsSlice";
-//import { setFilter } from "../../redux/filtersSlice";
 
 import css from './Filter.module.css';
 
 export const Filter = () => {
 
     const contactsFilter = useSelector(getFilter);
-    console.log(contactsFilter);
     const dispatch = useDispatch();
     const changeFieldFilter = e => dispatch(changeFilter(e.currentTarget.value));
 
@@ -31,6 +27,6 @@ export const Filter = () => {
 };
 
 Filter.prototype = {
-    value: PropTypes.string.isRequired,
-    onFilterChange: PropTypes.func.isRequired
+    filter: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 }

@@ -9,7 +9,6 @@ import {
     REGISTER,
 } from 'redux-persist'
 import { persistedContactReducer } from "./contactsSlice";
-//import { filterReducer } from "./filtersSlice";
 
 
 export const store = configureStore({
@@ -25,22 +24,4 @@ export const store = configureStore({
         })
 });
 
-//filter: persistedContactReducer,
-
-export const persistor = persistStore(store)
-
-
-//filter: filtersReducer,
-
-// , filterReducer
-
-
-/*const enhancer = devToolsEnhancer();
-
-export const store = createStore(rootReducer, enhancer);*/
-
-
-
-/*export const store = configureStore({
-    reducer: {},
-})*/
+export const persistor = persistStore(store);
